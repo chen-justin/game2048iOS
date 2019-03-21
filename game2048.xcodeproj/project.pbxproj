@@ -14,6 +14,8 @@
 		D0EE946B2242D54D00BA4A7F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0EE94692242D54D00BA4A7F /* LaunchScreen.storyboard */; };
 		D0EE94762242D54D00BA4A7F /* game2048Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EE94752242D54D00BA4A7F /* game2048Tests.swift */; };
 		D0EE94812242D54D00BA4A7F /* game2048UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EE94802242D54D00BA4A7F /* game2048UITests.swift */; };
+		D0EE94902242D6FC00BA4A7F /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EE948F2242D6FC00BA4A7F /* Game.swift */; };
+		D0EE949322433B5B00BA4A7F /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EE949222433B5B00BA4A7F /* Board.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		D0EE947C2242D54D00BA4A7F /* game2048UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = game2048UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0EE94802242D54D00BA4A7F /* game2048UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = game2048UITests.swift; sourceTree = "<group>"; };
 		D0EE94822242D54D00BA4A7F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D0EE948F2242D6FC00BA4A7F /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		D0EE949222433B5B00BA4A7F /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +101,8 @@
 		D0EE945F2242D54C00BA4A7F /* game2048 */ = {
 			isa = PBXGroup;
 			children = (
+				D0EE949122433B4E00BA4A7F /* View */,
+				D0EE948E2242D6E000BA4A7F /* Model */,
 				D0EE94602242D54C00BA4A7F /* AppDelegate.swift */,
 				D0EE94622242D54C00BA4A7F /* ViewController.swift */,
 				D0EE94642242D54C00BA4A7F /* Main.storyboard */,
@@ -123,6 +129,22 @@
 				D0EE94822242D54D00BA4A7F /* Info.plist */,
 			);
 			path = game2048UITests;
+			sourceTree = "<group>";
+		};
+		D0EE948E2242D6E000BA4A7F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D0EE948F2242D6FC00BA4A7F /* Game.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D0EE949122433B4E00BA4A7F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D0EE949222433B5B00BA4A7F /* Board.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,6 +279,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0EE94632242D54C00BA4A7F /* ViewController.swift in Sources */,
+				D0EE94902242D6FC00BA4A7F /* Game.swift in Sources */,
+				D0EE949322433B5B00BA4A7F /* Board.swift in Sources */,
 				D0EE94612242D54C00BA4A7F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
