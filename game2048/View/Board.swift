@@ -146,6 +146,7 @@ class BoardView: UIView {
         tileView.layer.masksToBounds = true
         tileView.tag = tile.getIdent()
         tileView.textAlignment = .center
+        tileView.adjustsFontSizeToFitWidth = true
 
         //Actually add to board
         self.addSubview(tileView)

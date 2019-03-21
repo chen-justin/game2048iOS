@@ -14,9 +14,14 @@ protocol boardDelegate {
     func getTileState() -> [Tile]
 }
 
+protocol settingsDelegate {
+    func changeBoardSize(withBoardSize: Int)
+}
+
 class ViewController: UIViewController {
     
     var game2048: Game = Game()
+    var currBoardSize = 4
     var bestScore = 0
     
     @IBOutlet weak var boardView: BoardView!
@@ -26,6 +31,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var bestView: UIView!
     @IBOutlet weak var undoButton: UIButton!
     @IBOutlet weak var newGameButton: UIButton!
+    @IBOutlet weak var scoresButton: UIButton!
+    @IBOutlet weak var settingsButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +48,12 @@ class ViewController: UIViewController {
         undoButton.layer.masksToBounds = true
         newGameButton.layer.cornerRadius = 5
         newGameButton.layer.masksToBounds = true
+        settingsButton.layer.cornerRadius = 5
+        settingsButton.layer.masksToBounds = true
+        scoresButton.layer.cornerRadius = 5
+        scoresButton.layer.masksToBounds = true
         
+        self.definesPresentationContext = true
         
         //Set Gesture Recognizers
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(doSwipe))
@@ -76,8 +88,16 @@ class ViewController: UIViewController {
         }
     }
     @IBAction func newGame(_ sender: Any) {
-        game2048 = Game()
+        game2048 = Game(withSize: self.currBoardSize)
+        updateScore()
         boardView.setNeedsDisplay()
+    }
+    
+    @IBAction func goToScores(_ sender: Any) {
+    }
+    
+    @IBAction func goToSettings(_ sender: Any) {
+        self.performSegue(withIdentifier: "presentSettings", sender: nil)
     }
     
     @objc func doSwipe(gesture: UISwipeGestureRecognizer) {
@@ -103,6 +123,13 @@ class ViewController: UIViewController {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "presentSettings") {
+            let destVC: SettingsVC = segue.destination as! SettingsVC
+            destVC.delegate = self
+        }
+    }
+    
 }
 
 extension ViewController: boardDelegate {
@@ -113,5 +140,16 @@ extension ViewController: boardDelegate {
     func getBoardSize() -> Int {
         return game2048.getBoardSize()
     }
+}
+
+extension ViewController: settingsDelegate {
+    func changeBoardSize(withBoardSize boardSize: Int) {
+        self.game2048 = Game(withSize: boardSize)
+        self.currBoardSize = boardSize
+        self.updateScore()
+        boardView.setNeedsDisplay()
+    }
+    
+    
 }
 
