@@ -7,16 +7,25 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseUI
+import FirebaseAuth
+import FirebaseFirestore
 
 class SettingsVC: UIViewController {
     
     @IBOutlet weak var dismissButton: UIButton!
-    
     @IBOutlet weak var settingsModal: UIView!
-    
     @IBOutlet weak var boardSegControl: UISegmentedControl!
+    @IBOutlet weak var signInButton: UIButton!
+    @IBOutlet weak var userLabel: UILabel!
+    
+    @IBOutlet weak var changeNameButton: UIButton!
     
     var delegate: settingsDelegate?
+    
+    let authUI = FUIAuth.defaultAuthUI()
+    let db = Firestore.firestore()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,9 +36,27 @@ class SettingsVC: UIViewController {
         settingsModal.layer.shadowOpacity = 1
         settingsModal.layer.shadowOffset = CGSize.zero
         settingsModal.layer.shadowRadius = 10
-        //settingsModal.layer.shadowPath = UIBezierPath(rect: settingsModal.bounds).cgPath
-
+        
+        boardSegControl.selectedSegmentIndex = (delegate?.getBoardSize())! - 3
         dismissButton.layer.cornerRadius = dismissButton.layer.bounds.width/2
+        signInButton.layer.cornerRadius = 5
+        changeNameButton.layer.cornerRadius = 5
+
+        let providers: [FUIAuthProvider] = [
+            FUIEmailAuth()
+        ]
+        self.authUI?.providers = providers
+        
+        let handle = Auth.auth().addStateDidChangeListener { (auth, user) in
+            if let user = user {
+                self.userLabel.text = "Signed in as \(user.displayName!)"
+                self.signInButton.setTitle("Sign Out", for: .normal)
+            } else {
+                self.userLabel.text = "Not signed in"
+                self.signInButton.setTitle("Sign In", for: .normal)
+            }
+        }
+        
         
     }
     
@@ -51,7 +78,28 @@ class SettingsVC: UIViewController {
             print("Error!")
         }
     }
+    
     @IBAction func dismissModal(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func changeName(_ sender: Any) {
+        if let user = Auth.auth().currentUser {
+            //Present modal and change name
+            //db.collection("users").document(user.getIDToken(completion: <#T##AuthTokenCallback?##AuthTokenCallback?##(String?, Error?) -> Void#>))
+        }
+    }
+    
+    @IBAction func signIn(_ sender: Any) {
+        if let _ = Auth.auth().currentUser {
+            do {
+                try Auth.auth().signOut()
+            } catch {
+                print("Error while signing out")
+            }
+        } else {
+            let authViewController = self.authUI?.authViewController()
+            self.present(authViewController!, animated: true, completion: nil)
+        }
     }
 }

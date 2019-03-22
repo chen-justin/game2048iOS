@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
+import FirebaseFirestore
 
 protocol boardDelegate {
     func getBoardSize() -> Int
@@ -16,6 +19,7 @@ protocol boardDelegate {
 
 protocol settingsDelegate {
     func changeBoardSize(withBoardSize: Int)
+    func getBoardSize() -> Int
 }
 
 class ViewController: UIViewController {
@@ -69,6 +73,8 @@ class ViewController: UIViewController {
         self.view.addGestureRecognizer(swipeLeft)
         self.view.addGestureRecognizer(swipeUp)
         self.view.addGestureRecognizer(swipeDown)
+        
+        updateScore()
     }
     
     func updateScore() {
@@ -149,7 +155,5 @@ extension ViewController: settingsDelegate {
         self.updateScore()
         boardView.setNeedsDisplay()
     }
-    
-    
 }
 

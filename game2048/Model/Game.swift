@@ -52,21 +52,25 @@ class Game {
     }
     
     func left() {
-        prevState = copyState(state: state)
-        prevGameScore = gameScore
+        let tempState = copyState(state: state)
+        let tempScore = gameScore
         let collapse = collapseBoard(arr: state)
         if collapse != nil {
+            prevState = tempState
+            prevGameScore = tempScore
             state = collapse!
             spawn()
         }
     }
     
     func right() {
-        prevState = copyState(state: state)
-        prevGameScore = gameScore
+        let tempState = copyState(state: state)
+        let tempScore = gameScore
         self.reverseBoard()
         let collapse = collapseBoard(arr: state)
         if collapse != nil {
+            prevState = tempState
+            prevGameScore = tempScore
             state = collapse!
             self.reverseBoard()
             spawn()
@@ -76,11 +80,13 @@ class Game {
     }
     
     func up() {
-        prevState = copyState(state: state)
-        prevGameScore = gameScore
+        let tempState = copyState(state: state)
+        let tempScore = gameScore
         self.transposeBoard()
         let collapse = collapseBoard(arr: state)
         if collapse != nil {
+            prevState = tempState
+            prevGameScore = tempScore
             state = collapse!
             self.transposeBoard()
             spawn()
@@ -90,12 +96,14 @@ class Game {
     }
     
     func down() {
-        prevState = copyState(state: state)
-        prevGameScore = gameScore
+        let tempState = copyState(state: state)
+        let tempScore = gameScore
         self.transposeBoard()
         self.reverseBoard()
         let collapse = collapseBoard(arr: state)
         if collapse != nil {
+            prevState = tempState
+            prevGameScore = tempScore
             state = collapse!
             self.reverseBoard()
             self.transposeBoard()
