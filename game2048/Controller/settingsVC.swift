@@ -38,6 +38,7 @@ class SettingsVC: UIViewController {
         settingsModal.layer.shadowRadius = 10
         
         boardSegControl.selectedSegmentIndex = (delegate?.getBoardSize())! - 3
+        boardSegControl.layer.cornerRadius = 5
         dismissButton.layer.cornerRadius = dismissButton.layer.bounds.width/2
         signInButton.layer.cornerRadius = 5
         changeNameButton.layer.cornerRadius = 5

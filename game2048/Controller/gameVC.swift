@@ -93,23 +93,51 @@ class GameVC: UIViewController {
     func checkGameEnd() {
         if game2048.isGameOver() {
             updateScore()
-            let score = game2048.getScore()
-            if let user = Auth.auth().currentUser {
-                print("Saving score")
-                db.collection("users").document(user.uid).updateData([
-                    "score": score
-                ]) { err in
-                    if let err = err {
-                        print("Error writing document: \(err)")
-                    } else {
-                        print("Document successfully written!")
-                    }
-                }
-            } else {
-                print("User was not logged in, score was not saved")
-            }
+            saveScore()
             self.performSegue(withIdentifier: "presentGameOver", sender: nil)
         }
+    }
+    
+    func saveScore() {
+        let currScore = game2048.getScore()
+        let boardType = "\(currBoardSize)x\(currBoardSize)"
+        if let user = Auth.auth().currentUser {
+            print("Saving score")
+            let docRef = db.collection("users").document(user.uid)
+            
+            //Get current score
+            docRef.getDocument { (document, error) in
+                //If the document exists, we have to compare the current score with the previous score
+                if let document = document, document.exists {
+                    let prevScore = document.data()!["score"] as! Int
+                    if prevScore < currScore {
+                        docRef.updateData([
+                            boardType: currScore
+                        ]) { err in
+                            if let err = err {
+                                print("Error writing document: \(err)")
+                            } else {
+                                print("Document successfully written!")
+                            }
+                        }
+                    }
+                } else {
+                    //Document doesn't exist so we can just use the current score
+                    docRef.updateData([
+                        boardType: currScore
+                    ]) { err in
+                        if let err = err {
+                            print("Error writing document: \(err)")
+                        } else {
+                            print("Document successfully written!")
+                        }
+                    }
+                }
+            }
+        } else {
+            print("User was not logged in; score was not saved")
+        }
+        
     }
 
     @IBAction func undo(_ sender: Any) {
