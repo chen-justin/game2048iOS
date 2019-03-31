@@ -56,6 +56,8 @@
 #import "FUISnapshotArrayDiff.h"
 #import "FirebaseGoogleAuthUI.h"
 #import "FUIGoogleAuth.h"
+#import "FirebaseOAuthUI.h"
+#import "FUIOAuth.h"
 #import "FirebasePhoneAuthUI.h"
 #import "FUIPhoneAuth.h"
 #import "FirebaseStorageUI.h"

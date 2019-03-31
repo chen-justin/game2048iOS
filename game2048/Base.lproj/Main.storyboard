@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina3_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--GameVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController definesPresentationContext="YES" id="BYZ-38-t0r" customClass="ViewController" customModule="game2048" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController definesPresentationContext="YES" id="BYZ-38-t0r" customClass="GameVC" customModule="game2048" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -47,7 +47,7 @@
                                                 <color key="backgroundColor" red="0.56078431370000004" green="0.47843137250000001" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                                 <state key="normal" title="Settings">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="titleColor" red="0.97647058823529409" green="0.96470588235294119" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="goToSettings:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Kvs-zk-vfG"/>
@@ -70,7 +70,7 @@
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JCT-1a-vAa" userLabel="scoreLabel">
                                                         <rect key="frame" x="42" y="17.5" width="9.5" height="20.5"/>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="textColor" red="0.97647058819999999" green="0.96470588239999999" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
@@ -95,7 +95,7 @@
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XSR-AM-kp6" userLabel="bestLabel">
                                                         <rect key="frame" x="42" y="17.5" width="9.5" height="20.5"/>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="textColor" red="0.97647058819999999" green="0.96470588239999999" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
@@ -118,7 +118,7 @@
                                                 <color key="backgroundColor" red="0.56078431370000004" green="0.47843137250000001" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                                 <state key="normal" title="Restart">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="titleColor" red="0.97647058819999999" green="0.96470588239999999" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="newGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mWX-F1-Kty"/>
@@ -129,7 +129,7 @@
                                                 <color key="backgroundColor" red="0.56078431370000004" green="0.47843137250000001" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                                 <state key="normal" title="Undo">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="titleColor" red="0.97647058819999999" green="0.96470588239999999" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="undo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="34h-YX-RZH"/>
@@ -166,7 +166,8 @@
                         <outlet property="settingsButton" destination="9wP-ar-LCl" id="9o5-sf-T24"/>
                         <outlet property="undoButton" destination="hOu-D8-o9u" id="o2J-Y9-dHg"/>
                         <segue destination="WwA-6F-cHQ" kind="presentation" identifier="presentSettings" modalPresentationStyle="overFullScreen" id="BP6-mB-TgX"/>
-                        <segue destination="rrW-aO-vth" kind="presentation" identifier="presentScores" id="vFT-Gl-vZg"/>
+                        <segue destination="rrW-aO-vth" kind="presentation" identifier="presentScores" modalPresentationStyle="overFullScreen" id="vFT-Gl-vZg"/>
+                        <segue destination="QRm-cw-Juz" kind="presentation" identifier="presentGameOver" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="Bqc-0C-9Mk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -285,7 +286,6 @@
                                                         </state>
                                                         <connections>
                                                             <action selector="changeName:" destination="WwA-6F-cHQ" eventType="touchUpInside" id="eXN-M3-bZe"/>
-                                                            <action selector="signIn:" destination="WwA-6F-cHQ" eventType="touchUpInside" id="Tcf-9v-gJX"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -362,7 +362,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="SGD-5m-9gA" firstAttribute="centerY" secondItem="uzM-EW-aWs" secondAttribute="centerY" id="1bH-fr-RIJ"/>
                             <constraint firstItem="SGD-5m-9gA" firstAttribute="width" secondItem="LAq-kW-WWS" secondAttribute="width" multiplier="0.9" id="DHG-cI-eZu"/>
@@ -382,6 +382,64 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SGl-EL-rr8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1076" y="-233"/>
+        </scene>
+        <!--Game OverVC-->
+        <scene sceneID="6Aw-vb-Cb2">
+            <objects>
+                <viewController id="QRm-cw-Juz" customClass="GameOverVC" customModule="game2048" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bnB-9Q-lMD">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R64-gg-AwU" userLabel="gameOverModal">
+                                <rect key="frame" x="16" y="154" width="288" height="192"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game over!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="TvC-oQ-k1v">
+                                        <rect key="frame" x="48.5" y="56" width="191.5" height="42"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="35"/>
+                                        <color key="textColor" red="0.46666666666666667" green="0.43137254901960786" blue="0.396078431372549" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fZ8-rb-Jzq">
+                                        <rect key="frame" x="99" y="112" width="90" height="33"/>
+                                        <color key="backgroundColor" red="0.46666666666666667" green="0.43137254901960786" blue="0.396078431372549" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="90" id="Qrm-HN-Qj4"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                        <state key="normal" title="Try Again">
+                                            <color key="titleColor" red="0.97647058823529409" green="0.96470588235294119" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="tryAgain:" destination="QRm-cw-Juz" eventType="touchUpInside" id="Fd9-E5-Uml"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="R64-gg-AwU" secondAttribute="height" multiplier="3:2" id="9P5-we-9GM"/>
+                                    <constraint firstItem="fZ8-rb-Jzq" firstAttribute="top" secondItem="TvC-oQ-k1v" secondAttribute="bottom" constant="14" id="Xpi-Qz-NIC"/>
+                                    <constraint firstItem="fZ8-rb-Jzq" firstAttribute="centerX" secondItem="R64-gg-AwU" secondAttribute="centerX" id="YHe-RG-OwQ"/>
+                                    <constraint firstItem="TvC-oQ-k1v" firstAttribute="centerX" secondItem="R64-gg-AwU" secondAttribute="centerX" id="bsf-CL-SMg"/>
+                                    <constraint firstItem="TvC-oQ-k1v" firstAttribute="centerY" secondItem="R64-gg-AwU" secondAttribute="centerY" multiplier="0.8" id="iP7-ib-pz8"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.93333333333333335" green="0.89411764705882346" blue="0.85490196078431369" alpha="0.72999999999999998" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="R64-gg-AwU" firstAttribute="centerY" secondItem="evM-QY-iLv" secondAttribute="centerY" id="e4O-Su-xfA"/>
+                            <constraint firstItem="R64-gg-AwU" firstAttribute="width" secondItem="bnB-9Q-lMD" secondAttribute="width" multiplier="0.9" id="nVS-o4-8RD"/>
+                            <constraint firstItem="R64-gg-AwU" firstAttribute="centerX" secondItem="evM-QY-iLv" secondAttribute="centerX" id="pWX-Zo-fKd"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="evM-QY-iLv"/>
+                    </view>
+                    <connections>
+                        <outlet property="tryAgainButton" destination="fZ8-rb-Jzq" id="Yje-OW-vvG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Smt-P1-RkK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="135" y="843"/>
         </scene>
         <!--ScoresVC-->
         <scene sceneID="Nlj-He-RoA">
@@ -413,19 +471,60 @@
                                         </state>
                                         <connections>
                                             <action selector="dismissModal:" destination="WwA-6F-cHQ" eventType="touchUpInside" id="odt-Th-dl1"/>
+                                            <action selector="dismissScores:" destination="rrW-aO-vth" eventType="touchUpInside" id="428-rk-XV5"/>
                                         </connections>
                                     </button>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wPX-ft-v8i">
                                         <rect key="frame" x="10" y="78" width="268" height="272"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" red="0.52156862749999999" green="0.38823529410000002" blue="0.34509803919999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="OQa-80-yIz">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="0.0" shouldIndentWhileEditing="NO" reuseIdentifier="scoreCell" id="OQa-80-yIz" customClass="ScoreCell" customModule="game2048" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="268" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OQa-80-yIz" id="iic-oH-2Rt">
                                                     <rect key="frame" x="0.0" y="0.0" width="268" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X4c-Gx-VbD" userLabel="scoreLabel">
+                                                            <rect key="frame" x="70" y="12" width="47.5" height="20"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                                            <color key="textColor" red="0.97647058823529409" green="0.96470588235294119" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kzs-iJ-JYc" userLabel="userLabel">
+                                                            <rect key="frame" x="219.5" y="12" width="38.5" height="20"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                                            <color key="textColor" red="0.97647058823529409" green="0.96470588235294119" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="001" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G6x-kG-gLS" userLabel="rankLabel">
+                                                            <rect key="frame" x="10" y="12" width="30" height="20"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="30" id="YWN-np-ejB"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                                            <color key="textColor" red="0.97647058823529409" green="0.96470588235294119" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="kzs-iJ-JYc" firstAttribute="centerY" secondItem="iic-oH-2Rt" secondAttribute="centerY" id="1ec-Lj-dEV"/>
+                                                        <constraint firstItem="G6x-kG-gLS" firstAttribute="leading" secondItem="iic-oH-2Rt" secondAttribute="leading" constant="10" id="4Gr-1O-OPv"/>
+                                                        <constraint firstItem="kzs-iJ-JYc" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="X4c-Gx-VbD" secondAttribute="trailing" constant="10" id="B8R-dm-Bn1"/>
+                                                        <constraint firstItem="X4c-Gx-VbD" firstAttribute="leading" secondItem="G6x-kG-gLS" secondAttribute="trailing" constant="30" id="aGz-Zz-nUY"/>
+                                                        <constraint firstItem="G6x-kG-gLS" firstAttribute="centerY" secondItem="iic-oH-2Rt" secondAttribute="centerY" id="crT-sN-LqW"/>
+                                                        <constraint firstAttribute="trailing" secondItem="kzs-iJ-JYc" secondAttribute="trailing" constant="10" id="ilW-Iy-OCt"/>
+                                                        <constraint firstItem="X4c-Gx-VbD" firstAttribute="centerY" secondItem="iic-oH-2Rt" secondAttribute="centerY" id="oB2-OB-EbD"/>
+                                                    </constraints>
                                                 </tableViewCellContentView>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                <connections>
+                                                    <outlet property="rankLabel" destination="G6x-kG-gLS" id="5e9-7O-mPa"/>
+                                                    <outlet property="scoreLabel" destination="X4c-Gx-VbD" id="PKs-CP-7dK"/>
+                                                    <outlet property="userLabel" destination="kzs-iJ-JYc" id="0yr-kw-EXg"/>
+                                                </connections>
                                             </tableViewCell>
                                         </prototypes>
                                     </tableView>
@@ -440,7 +539,7 @@
                                         <color key="tintColor" red="0.52156862745098043" green="0.38823529411764707" blue="0.34509803921568627" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </segmentedControl>
                                 </subviews>
-                                <color key="backgroundColor" red="0.67369014024734497" green="0.60511261224746704" blue="0.52939999103546143" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.67450980392156867" green="0.60392156862745094" blue="0.52941176470588236" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="Gu6-4n-kuD" secondAttribute="trailing" constant="5" id="6zy-91-45M"/>
                                     <constraint firstItem="wPX-ft-v8i" firstAttribute="top" secondItem="VdX-IU-hxH" secondAttribute="bottom" constant="10" id="7OI-YT-wv6"/>
@@ -458,7 +557,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="fjW-bJ-gqa" firstAttribute="centerX" secondItem="nl3-Ix-5qP" secondAttribute="centerX" id="8fx-js-eFT"/>
                             <constraint firstItem="fjW-bJ-gqa" firstAttribute="width" secondItem="gXW-g4-078" secondAttribute="width" multiplier="0.9" id="M74-bX-JQF"/>
@@ -467,7 +566,10 @@
                         <viewLayoutGuide key="safeArea" id="nl3-Ix-5qP"/>
                     </view>
                     <connections>
+                        <outlet property="dismissButton" destination="Gu6-4n-kuD" id="T8c-00-qaq"/>
+                        <outlet property="scoreModal" destination="fjW-bJ-gqa" id="NEk-B7-a4G"/>
                         <outlet property="scoreSegControl" destination="VdX-IU-hxH" id="k71-IG-1hn"/>
+                        <outlet property="scoreTable" destination="wPX-ft-v8i" id="uAr-FE-sk1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8ba-cU-eLt" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -30,7 +30,7 @@ class SettingsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //Drop shadow for modal
+        //UI Setup
         settingsModal.layer.cornerRadius = 5
         settingsModal.layer.shadowColor = UIColor.black.cgColor
         settingsModal.layer.shadowOpacity = 1
@@ -42,17 +42,21 @@ class SettingsVC: UIViewController {
         signInButton.layer.cornerRadius = 5
         changeNameButton.layer.cornerRadius = 5
 
+        //Set providers for Firebase Auth
         let providers: [FUIAuthProvider] = [
             FUIEmailAuth()
         ]
         self.authUI?.providers = providers
         
-        let handle = Auth.auth().addStateDidChangeListener { (auth, user) in
+        //Listener for logged-in state
+        Auth.auth().addStateDidChangeListener { (auth, user) in
             if let user = user {
                 self.userLabel.text = "Signed in as \(user.displayName!)"
+                self.changeNameButton.isHidden = false
                 self.signInButton.setTitle("Sign Out", for: .normal)
             } else {
                 self.userLabel.text = "Not signed in"
+                self.changeNameButton.isHidden = true
                 self.signInButton.setTitle("Sign In", for: .normal)
             }
         }
@@ -75,7 +79,7 @@ class SettingsVC: UIViewController {
             //6x6
             delegate?.changeBoardSize(withBoardSize: 6)
         default:
-            print("Error!")
+            print("Unknown segment index selected")
         }
     }
     
@@ -85,14 +89,30 @@ class SettingsVC: UIViewController {
     
     @IBAction func changeName(_ sender: Any) {
         if let user = Auth.auth().currentUser {
-            //Present modal and change name
-            //db.collection("users").document(user.getIDToken(completion: <#T##AuthTokenCallback?##AuthTokenCallback?##(String?, Error?) -> Void#>))
+            let alert = UIAlertController(title: "Name Change", message: "Enter your desired name", preferredStyle: .alert)
+            alert.addTextField(configurationHandler: nil)
+            alert.addAction(UIAlertAction(title: "Enter", style: .default, handler: { [weak alert] (_) in
+                let textField = alert?.textFields![0] // Force unwrapping because we know it exists.
+                let newName = textField!.text!
+                self.db.collection("users").document(user.uid).updateData([
+                    "name": newName
+                    ]) { err in
+                        if let err = err {
+                            print("Error writing document: \(err)")
+                        } else {
+                            print("Document successfully written!")
+                        }
+                }
+            }))
+            self.present(alert, animated: true, completion: nil)
         }
+        
     }
     
     @IBAction func signIn(_ sender: Any) {
         if let _ = Auth.auth().currentUser {
             do {
+                //There's probably a more elegant way to handle errors from .signout()
                 try Auth.auth().signOut()
             } catch {
                 print("Error while signing out")

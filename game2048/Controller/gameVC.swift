@@ -22,11 +22,15 @@ protocol settingsDelegate {
     func getBoardSize() -> Int
 }
 
-class ViewController: UIViewController {
+class GameVC: UIViewController {
     
     var game2048: Game = Game()
     var currBoardSize = 4
     var bestScore = 0
+    
+    lazy var db = {
+        return Firestore.firestore()
+    }()
     
     @IBOutlet weak var boardView: BoardView!
     @IBOutlet weak var scoreLabel: UILabel!
@@ -85,6 +89,28 @@ class ViewController: UIViewController {
             bestLabel.text = "\(bestScore)"
         }
     }
+    
+    func checkGameEnd() {
+        if game2048.isGameOver() {
+            updateScore()
+            let score = game2048.getScore()
+            if let user = Auth.auth().currentUser {
+                print("Saving score")
+                db.collection("users").document(user.uid).updateData([
+                    "score": score
+                ]) { err in
+                    if let err = err {
+                        print("Error writing document: \(err)")
+                    } else {
+                        print("Document successfully written!")
+                    }
+                }
+            } else {
+                print("User was not logged in, score was not saved")
+            }
+            self.performSegue(withIdentifier: "presentGameOver", sender: nil)
+        }
+    }
 
     @IBAction func undo(_ sender: Any) {
         if(game2048.undo()) {
@@ -100,6 +126,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func goToScores(_ sender: Any) {
+        self.performSegue(withIdentifier: "presentScores", sender: nil)
     }
     
     @IBAction func goToSettings(_ sender: Any) {
@@ -112,18 +139,22 @@ class ViewController: UIViewController {
             game2048.left()
             boardView.setNeedsDisplay()
             updateScore()
+            checkGameEnd()
         case.right:
             game2048.right()
             boardView.setNeedsDisplay()
             updateScore()
+            checkGameEnd()
         case .up:
             game2048.up()
             boardView.setNeedsDisplay()
             updateScore()
+            checkGameEnd()
         case .down:
             game2048.down()
             boardView.setNeedsDisplay()
             updateScore()
+            checkGameEnd()
         default:
             print("Default")
         }
@@ -138,7 +169,7 @@ class ViewController: UIViewController {
     
 }
 
-extension ViewController: boardDelegate {
+extension GameVC: boardDelegate {
     func getTileState() -> [Tile] {
         return game2048.getTileState()
     }
@@ -148,7 +179,7 @@ extension ViewController: boardDelegate {
     }
 }
 
-extension ViewController: settingsDelegate {
+extension GameVC: settingsDelegate {
     func changeBoardSize(withBoardSize boardSize: Int) {
         self.game2048 = Game(withSize: boardSize)
         self.currBoardSize = boardSize
