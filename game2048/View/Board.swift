@@ -98,34 +98,35 @@ class BoardView: UIView {
         
         tileView.frame.size = CGSize(width: rectSize, height: rectSize)
         
-        UIView.animate(withDuration: 0.15, animations: {
-            if let mergedIdent = tile.popMergedIdent() {
-                if let mergedView = self.viewWithTag(mergedIdent) as? UILabel {
-                    mergedView.frame.origin.x = newX
-                    mergedView.frame.origin.y = newY
-                } else {
-                    print("Something went wrong!")
+        UIView.animateKeyframes(withDuration: 0.3, delay: 0, options: [.calculationModeLinear], animations: {
+            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 4/8, animations: {
+                if let mergedIdent = tile.popMergedIdent() {
+                    if let mergedView = self.viewWithTag(mergedIdent) as? UILabel {
+                        mergedView.layer.removeAllAnimations()
+                        mergedView.frame.origin.x = newX
+                        mergedView.frame.origin.y = newY
+                    } else {
+                        print("Something went wrong!")
+                    }
                 }
-            }
-            tileView.frame.origin.x = newX
-            tileView.frame.origin.y = newY
-        }, completion:{ finished in
-            //Change the values after animation finishes
-            tileView.text = "\(nextValue)"
-            if power < self.colors.count {
-                tileView.backgroundColor = self.colors[power].0
-                tileView.textColor = self.colors[power].1
-                tileView.font = self.colors[power].2
-            }
-            if prevValue! < (nextValue as NSDecimalNumber).intValue {
-                UIView.animate(withDuration: 0.075, animations: {
+                tileView.frame.origin.x = newX
+                tileView.frame.origin.y = newY
+            })
+            UIView.addKeyframe(withRelativeStartTime: 4/8, relativeDuration: 2/8, animations: {
+                if prevValue! < (nextValue as NSDecimalNumber).intValue {
                     tileView.transform = CGAffineTransform.identity.scaledBy(x: 1.2, y: 1.2)
-                }, completion: { finished in
-                    UIView.animate(withDuration: 0.075, animations: {
-                        tileView.transform = CGAffineTransform.identity
-                    })
-                })
-            }
+                }
+            })
+            
+            UIView.addKeyframe(withRelativeStartTime: 6/8, relativeDuration: 2/8, animations: {
+                tileView.transform = CGAffineTransform.identity
+                tileView.text = "\(nextValue)"
+                if power < self.colors.count {
+                    tileView.backgroundColor = self.colors[power].0
+                    tileView.textColor = self.colors[power].1
+                    tileView.font = self.colors[power].2
+                }
+            })
         })
     }
     

@@ -22,6 +22,10 @@ protocol settingsDelegate {
     func getBoardSize() -> Int
 }
 
+protocol gameDelegate {
+    func resetGame()
+}
+
 class GameVC: UIViewController {
     
     var game2048: Game = Game()
@@ -109,8 +113,8 @@ class GameVC: UIViewController {
             docRef.getDocument { (document, error) in
                 //If the document exists, we have to compare the current score with the previous score
                 if let document = document, document.exists {
-                    let prevScore = document.data()!["score"] as! Int
-                    if prevScore < currScore {
+                    let prevScore = document.data()![boardType] as? Int
+                    if prevScore == nil || prevScore! < currScore {
                         docRef.updateData([
                             boardType: currScore
                         ]) { err in
@@ -189,8 +193,12 @@ class GameVC: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if(segue.identifier == "presentSettings") {
+        if segue.identifier == "presentSettings" {
             let destVC: SettingsVC = segue.destination as! SettingsVC
+            destVC.delegate = self
+        }
+        if segue.identifier == "presentGameOver" {
+            let destVC: GameOverVC = segue.destination as! GameOverVC
             destVC.delegate = self
         }
     }
@@ -212,6 +220,14 @@ extension GameVC: settingsDelegate {
         self.game2048 = Game(withSize: boardSize)
         self.currBoardSize = boardSize
         self.updateScore()
+        boardView.setNeedsDisplay()
+    }
+}
+
+extension GameVC: gameDelegate {
+    func resetGame() {
+        game2048 = Game(withSize: self.currBoardSize)
+        updateScore()
         boardView.setNeedsDisplay()
     }
 }

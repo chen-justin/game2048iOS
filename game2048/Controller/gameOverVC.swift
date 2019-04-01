@@ -12,6 +12,8 @@ class GameOverVC: UIViewController {
     
     @IBOutlet weak var tryAgainButton: UIButton!
     
+    var delegate: gameDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tryAgainButton.layer.cornerRadius = 5
@@ -19,6 +21,7 @@ class GameOverVC: UIViewController {
     }
 
     @IBAction func tryAgain(_ sender: Any) {
+        delegate?.resetGame()
         self.dismiss(animated: true, completion: nil)
     }
     

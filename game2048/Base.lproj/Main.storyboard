@@ -451,7 +451,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fjW-bJ-gqa" userLabel="scoreModal">
-                                <rect key="frame" x="16" y="70" width="288" height="360"/>
+                                <rect key="frame" x="16" y="48.5" width="288" height="403"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="High Scores" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ELP-bR-Vdz">
                                         <rect key="frame" x="0.0" y="10" width="288" height="20"/>
@@ -476,7 +476,7 @@
                                         </connections>
                                     </button>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" separatorInsetReference="fromAutomaticInsets" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wPX-ft-v8i">
-                                        <rect key="frame" x="10" y="78" width="268" height="272"/>
+                                        <rect key="frame" x="10" y="78" width="268" height="315"/>
                                         <color key="backgroundColor" red="0.46666666666666667" green="0.43137254901960786" blue="0.396078431372549" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <prototypes>
@@ -494,7 +494,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kzs-iJ-JYc" userLabel="userLabel">
-                                                            <rect key="frame" x="204.5" y="12" width="38.5" height="20"/>
+                                                            <rect key="frame" x="219.5" y="12" width="38.5" height="20"/>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                                             <color key="textColor" red="0.97647058823529409" green="0.96470588235294119" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             <nil key="highlightedColor"/>
@@ -515,7 +515,7 @@
                                                         <constraint firstItem="kzs-iJ-JYc" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="X4c-Gx-VbD" secondAttribute="trailing" constant="10" id="B8R-dm-Bn1"/>
                                                         <constraint firstItem="X4c-Gx-VbD" firstAttribute="leading" secondItem="G6x-kG-gLS" secondAttribute="trailing" constant="30" id="aGz-Zz-nUY"/>
                                                         <constraint firstItem="G6x-kG-gLS" firstAttribute="centerY" secondItem="iic-oH-2Rt" secondAttribute="centerY" id="crT-sN-LqW"/>
-                                                        <constraint firstAttribute="trailing" secondItem="kzs-iJ-JYc" secondAttribute="trailing" constant="25" id="ilW-Iy-OCt"/>
+                                                        <constraint firstAttribute="trailing" secondItem="kzs-iJ-JYc" secondAttribute="trailing" constant="10" id="ilW-Iy-OCt"/>
                                                         <constraint firstItem="X4c-Gx-VbD" firstAttribute="centerY" secondItem="iic-oH-2Rt" secondAttribute="centerY" id="oB2-OB-EbD"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
@@ -548,7 +548,7 @@
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="Gu6-4n-kuD" secondAttribute="trailing" constant="5" id="6zy-91-45M"/>
                                     <constraint firstItem="wPX-ft-v8i" firstAttribute="top" secondItem="VdX-IU-hxH" secondAttribute="bottom" constant="10" id="7OI-YT-wv6"/>
-                                    <constraint firstAttribute="width" secondItem="fjW-bJ-gqa" secondAttribute="height" multiplier="1:1.25" id="9HY-f9-12W"/>
+                                    <constraint firstAttribute="width" secondItem="fjW-bJ-gqa" secondAttribute="height" multiplier="1:1.4" id="9HY-f9-12W"/>
                                     <constraint firstAttribute="trailing" secondItem="ELP-bR-Vdz" secondAttribute="trailing" id="JLi-Ap-zGM"/>
                                     <constraint firstItem="ELP-bR-Vdz" firstAttribute="top" secondItem="fjW-bJ-gqa" secondAttribute="top" constant="10" id="Qhh-P3-aQp"/>
                                     <constraint firstItem="VdX-IU-hxH" firstAttribute="leading" secondItem="fjW-bJ-gqa" secondAttribute="leading" constant="10" id="Ylg-H8-4r6"/>
