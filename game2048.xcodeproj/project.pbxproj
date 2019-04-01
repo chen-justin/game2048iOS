@@ -280,13 +280,16 @@
 				TargetAttributes = {
 					D0EE945C2242D54C00BA4A7F = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 					};
 					D0EE94702242D54D00BA4A7F = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 						TestTargetID = D0EE945C2242D54C00BA4A7F;
 					};
 					D0EE947B2242D54D00BA4A7F = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 						TestTargetID = D0EE945C2242D54C00BA4A7F;
 					};
 				};
@@ -692,7 +695,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = jc.game2048;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -711,7 +714,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = jc.game2048;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -732,7 +735,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = jc.game2048Tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/game2048.app/game2048";
 			};
@@ -754,7 +757,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = jc.game2048Tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/game2048.app/game2048";
 			};
@@ -775,7 +778,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = jc.game2048UITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = game2048;
 			};
@@ -796,7 +799,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = jc.game2048UITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = game2048;
 			};
